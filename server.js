@@ -3,13 +3,15 @@ const express = require('express')
 const app = express()
 app.use(express.json())
 
-app.get('/', (req, res) => {
-  return res.json({
-    status: 'Ok'
-  })
-})
 
 const PORT = process.env.PORT || 8080
+
+app.get('/', (req, res) => {
+  return res.json({
+    status: 'Ok',
+    port: PORT
+  })
+})
 
 const server = app.listen(PORT, () => console.log(`Servidor escuchando en el puerto ${PORT}`))
 
